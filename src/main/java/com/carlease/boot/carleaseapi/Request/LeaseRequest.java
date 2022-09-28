@@ -9,6 +9,15 @@ public class LeaseRequest {
 	private Long duration;
 	private Double interestRate;
 	private Long netPrice;
+	
+	
+	public LeaseRequest(Long mileage, Long duration, Double interestRate, Long netPrice) {
+		super();
+		this.mileage = mileage;
+		this.duration = duration;
+		this.interestRate = interestRate;
+		this.netPrice = netPrice;
+	}
 	public Long getMileage() {
 		return mileage;
 	}

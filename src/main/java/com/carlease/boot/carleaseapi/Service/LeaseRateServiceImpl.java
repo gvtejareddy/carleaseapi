@@ -11,10 +11,11 @@ public class LeaseRateServiceImpl implements LeaseRateService {
 
 	@Override
 	public Double calculateLeaseRate(LeaseRequest leaseRate) {
-		long mileage = (leaseRate.getMileage() / 12) *leaseRate.getDuration();
-		long mileagNetPrice= mileage/leaseRate.getNetPrice();
-		Double interest = ((( leaseRate.getInterestRate() / 100 )*leaseRate.getNetPrice())/12);
-		return interest+mileagNetPrice;
+		Long mileage = (leaseRate.getMileage() / 12) *leaseRate.getDuration();
+		Double mileagNetPrice= (double) (mileage/leaseRate.getNetPrice());
+		Double interest =  leaseRate.getInterestRate() / 100 ;
+		Double netPriceInrest= (interest *leaseRate.getNetPrice())/12;
+		return mileagNetPrice+netPriceInrest;
 	}
 
 }

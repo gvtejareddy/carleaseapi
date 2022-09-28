@@ -10,7 +10,6 @@ import lombok.Data;
 
 @Entity
 @Table(name="customer")
-@Data
 public class Customer {
 	
 	private static final long serialVersionUID = 1L;
@@ -22,7 +21,7 @@ public class Customer {
 	private Integer houseNumber;
 	private Integer zipCode;
 	private String emailAddress;
-	private Integer phone;
+	private Long phone;
 
 	
 	public Integer getCustomerId() {
@@ -61,10 +60,21 @@ public class Customer {
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
-	public Integer getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
+		this.phone = phone;
+	}
+	public Customer(Integer customerId, String name, String street, Integer houseNumber, Integer zipCode,
+			String emailAddress, Long phone) {
+		super();
+		this.customerId = customerId;
+		this.name = name;
+		this.street = street;
+		this.houseNumber = houseNumber;
+		this.zipCode = zipCode;
+		this.emailAddress = emailAddress;
 		this.phone = phone;
 	}
 	
